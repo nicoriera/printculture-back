@@ -12,6 +12,16 @@ class Api::V1::RecommendationsController < ApplicationController
         render json: {error: 'Unable to create recommendation.'}, status: 400
         end
     end
+
+    def update
+        @recommendation = Recommendation.find(params[:id])
+        @recommendation.update(recommendation_params)
+        if @recommendation.save
+        render json: @recommendation
+        else
+        render json: {error: 'Unable to update recommendation.'}, status: 400
+        end
+    end
     
     def show
         @recommendation = Recommendation.find(params[:id])
