@@ -36,6 +36,6 @@ class Api::V1::RecommendationsController < ApplicationController
     private
     
     def recommendation_params
-        params.require(:recommendation).permit(:title, :description, :rating)
+        params.require(:recommendation).permit(:title, :description, :rating, :category, :tag, :link)
     end
 end
